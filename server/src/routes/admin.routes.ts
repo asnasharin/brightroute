@@ -8,8 +8,11 @@ const router: Router = Router();
 const adminAuthControl = new AdminAuthControls();
 const adminControls = new AdminControls();
 
+// Admin Authentication Routes
 router.post("/login", adminAuthControl.adminLogin);
+router.post("/signup", adminAuthControl.adminSignup); 
 
+// Admin Protected Routes
 router.get(
   "/mentor-applications",
   AdminAuthentication.ensureAuth(["admin"]),

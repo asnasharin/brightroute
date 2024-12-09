@@ -1,7 +1,9 @@
 import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import cloudinary from "cloudinary";
 import cors from "cors";
+import fileUpload from "express-fileupload"
 import cookieParser from "cookie-parser";
 import menteeRouter from "./routes/mentee.routes";
 import mentorRouter from "./routes/mentor.routes";
@@ -18,8 +20,10 @@ const corsConfig = {
   credentials: true,
 };
 
+
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(fileUpload())
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors(corsConfig));

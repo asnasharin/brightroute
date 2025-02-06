@@ -17,6 +17,6 @@ const job = schedule.scheduleJob("0 0 * * *", async () => {
   }
 });
 
-export { job };
+export { job }
 
 // 0 0 1 * *

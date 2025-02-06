@@ -14,9 +14,10 @@ import forgotPassControl from "./routes/common.routes";
 
 const app = express();
 dotenv.config();
+
+const allowedOrigins = process.env.CORS_ORIGIN?.split(",") || [];
 const corsConfig = {
-  origin: process.env.CORS_ORIGIN,
-  // origin: "*",
+  origin: allowedOrigins,
   credentials: true,
 };
 
